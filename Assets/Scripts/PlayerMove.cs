@@ -10,6 +10,9 @@ public class PlayerMove : MonoBehaviour
     public SpriteRenderer sr;
     public Vector2 moveVector;
     public float speed = 2f;
+
+    public Joystick joystick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +27,13 @@ public class PlayerMove : MonoBehaviour
         walk();  
         Flip();
         Jump();
-        CheckingGround();
+        CheckingGround();   
     }
-
+    
+    
     void walk()
     {
-        moveVector.x = Input.GetAxis("Horizontal");
+        moveVector.x = joystick.Horizontal;
         anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
     }
