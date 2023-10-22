@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
     public Animator anim;
     public SpriteRenderer sr;
     public Vector2 moveVector;
-    public float speed = 2f;
+    public float speed = 10f;
 
     public Joystick joystick;
 
