@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMove : MonoBehaviour
 {
-
+    PhotonView view;
     public Rigidbody2D rb;
     public Animator anim;
     public SpriteRenderer sr;
@@ -13,23 +14,28 @@ public class PlayerMove : MonoBehaviour
 
     public Joystick joystick;
 
-    // Start is called before the first frame update
     void Start()
     {
+        view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         walk();  
         Flip();
         Jump();
         CheckingGround();   
+        
+        if (view.IsMine)
+        {
+            Vector2 moveInput = new Vector2 (Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            Vector2 moveAmount = moveInput.normalized * speed * Time.deltaTime;
+            transform.position += (Vector3)moveAmount;
+        }
     }
-    
     
     void walk()
     {
