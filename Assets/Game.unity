@@ -916,7 +916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185756212}
   - component: {fileID: 185756213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 217170807}
   - component: {fileID: 217170806}
   - component: {fileID: 217170805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Frog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   - component: {fileID: 453107526}
   - component: {fileID: 453107527}
   - component: {fileID: 453107528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plant House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2305,6 +2305,7 @@ GameObject:
   - component: {fileID: 662467624}
   - component: {fileID: 662467625}
   - component: {fileID: 662467626}
+  - component: {fileID: 662467627}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -2378,6 +2379,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 1027165450}
+  - {fileID: 1991165897}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2447,12 +2449,19 @@ MonoBehaviour:
   speed: 2
   joystick: {fileID: 519407910}
   jumpForce: 7
+  maxJumpValue: 2
   onGround: 0
   GroundCheck: {fileID: 1027165450}
   checkRadius: 0.5
   Ground:
     serializedVersion: 2
+    m_Bits: 392
+  TopCheck: {fileID: 1991165897}
+  Roof:
+    serializedVersion: 2
     m_Bits: 8
+  poseStand: {fileID: 662467623}
+  poseSquat: {fileID: 662467627}
 --- !u!95 &662467625
 Animator:
   serializedVersion: 5
@@ -2487,6 +2496,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   health: 3
+--- !u!61 &662467627
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662467619}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.013433933, y: -0.061412364}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.33, y: 0.32}
+    newSize: {x: 0.33, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2033369, y: 0.19717526}
+  m_EdgeRadius: 0
 --- !u!1 &677389516
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,7 +6431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934503436}
   - component: {fileID: 1934503437}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6645,6 +6680,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1991165896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991165897}
+  - component: {fileID: 1991165898}
+  m_Layer: 0
+  m_Name: TopCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1991165897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991165896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: -0.008, z: 0.010390667}
+  m_LocalScale: {x: 0.24235916, y: 0.19691682, z: 0.24235916}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 662467621}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1991165898
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991165896}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &2011695841
 GameObject:
   m_ObjectHideFlags: 0
