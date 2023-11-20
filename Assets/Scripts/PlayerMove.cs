@@ -19,6 +19,8 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+
+        TopCheckRadius = TopCheck.GetComponent<BoxCollider2D>().edgeRadius;
     }
 
     // Update is called once per frame
@@ -27,7 +29,8 @@ public class PlayerMove : MonoBehaviour
         walk();  
         Flip();
         Jump();
-        CheckingGround();   
+        CheckingGround();
+        SquatCheck();
     }
     
     
@@ -51,12 +54,19 @@ public class PlayerMove : MonoBehaviour
     }
 
     public float jumpForce = 3f;
+    private int jumpCount = 0;
+    public int maxJumpValue = 2;
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onGround) 
+        if (Input.GetKeyDown(KeyCode.Space) && (onGround || (++jumpCount < maxJumpValue))) 
         { 
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (onGround)
+        {
+            jumpCount = 0;
         }
     }
 
@@ -70,6 +80,28 @@ public class PlayerMove : MonoBehaviour
         onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, Ground);
 
         anim.SetBool("onGround", onGround);
+    }
+
+    public Transform TopCheck;
+    private float TopCheckRadius;
+    public LayerMask Roof;
+    public Collider2D poseStand;
+    public Collider2D poseSquat;
+
+    void SquatCheck()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            anim.SetBool("squat", true);
+            poseStand.enabled = false;
+            poseSquat.enabled = true;
+        }
+        else
+        {
+            anim.SetBool("squat", false);
+            poseStand.enabled = true;
+            poseSquat.enabled = false;
+        }
     }
 
 }
