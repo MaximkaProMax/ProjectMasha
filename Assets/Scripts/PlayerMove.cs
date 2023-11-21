@@ -70,6 +70,12 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void JumpButton()
+    {
+      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
+    
+
     public bool onGround;
     public Transform GroundCheck;
     public float checkRadius = 0.5f;
