@@ -31,9 +31,20 @@ public class PlayerMove : MonoBehaviour
         Jump();
         CheckingGround();
         SquatCheck();
+
+        TeleportPlayerToCoordinates();
     }
-    
-    
+
+    public void TeleportPlayerToCoordinates()
+    {
+        if (transform.position.y < -14f)
+        {
+            Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
+            transform.position = newPosition;
+        }
+    }
+
+
     void walk()
     {
         moveVector.x = joystick.Horizontal;
