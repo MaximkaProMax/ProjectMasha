@@ -31,9 +31,20 @@ public class PlayerMove : MonoBehaviour
         Jump();
         CheckingGround();
         SquatCheck();
+
+        TeleportPlayerToCoordinates();
     }
-    
-    
+
+    public void TeleportPlayerToCoordinates()
+    {
+        if (transform.position.y < -14f)
+        {
+            Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
+            transform.position = newPosition;
+        }
+    }
+
+
     void walk()
     {
         moveVector.x = joystick.Horizontal;
@@ -72,9 +83,16 @@ public class PlayerMove : MonoBehaviour
 
     public void JumpButton()
     {
-      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if (onGround || (++jumpCount < maxJumpValue))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (onGround)
+        {
+            jumpCount = 0;
+        }
     }
-    
 
     public bool onGround;
     public Transform GroundCheck;
