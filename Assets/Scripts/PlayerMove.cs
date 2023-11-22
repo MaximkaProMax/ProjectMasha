@@ -72,9 +72,16 @@ public class PlayerMove : MonoBehaviour
 
     public void JumpButton()
     {
-      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if (onGround || (++jumpCount < maxJumpValue))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (onGround)
+        {
+            jumpCount = 0;
+        }
     }
-    
 
     public bool onGround;
     public Transform GroundCheck;
