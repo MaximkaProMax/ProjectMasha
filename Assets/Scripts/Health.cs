@@ -12,8 +12,10 @@ public class Health : MonoBehaviour
         health -= damage;
 
         if (health <= 0)
-        { 
-            gameObject.SetActive(false);
+        {
+            Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
+            transform.position = newPosition;
+            health = maxHealth;
         }
     }
 
