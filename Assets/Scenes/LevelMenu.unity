@@ -452,8 +452,7 @@ GameObject:
   - component: {fileID: 666586570}
   - component: {fileID: 666586569}
   m_Layer: 0
-  m_Name: "\u0421\u043D\u0438\u043C\u043E\u043A \u044D\u043A\u0440\u0430\u043D\u0430
-    2023-11-22 115803"
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a08ea78e4b4466b4fac484fc23579d2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4f83f1d3da56534b9702a9bc033a09b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
