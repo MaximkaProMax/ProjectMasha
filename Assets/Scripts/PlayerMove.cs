@@ -31,12 +31,30 @@ public class PlayerMove : MonoBehaviour
         Jump();
         CheckingGround();
         SquatCheck();
+
+        TeleportPlayerToCoordinates();
     }
-    
-    
+
+    public void TeleportPlayerToCoordinates()
+    {
+        if (transform.position.y < -14f)
+        {
+            Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
+            transform.position = newPosition;
+        }
+    }
+
+
     void walk()
     {
-        moveVector.x = joystick.Horizontal;
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (joystick != null)
+        {
+            horizontalInput += joystick.Horizontal;
+        }
+
+        moveVector.x = horizontalInput;
         anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
     }
@@ -61,6 +79,19 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && (onGround || (++jumpCount < maxJumpValue))) 
         { 
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (onGround)
+        {
+            jumpCount = 0;
+        }
+    }
+
+    public void JumpButton()
+    {
+        if (onGround || (++jumpCount < maxJumpValue))
+        {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
