@@ -47,7 +47,14 @@ public class PlayerMove : MonoBehaviour
 
     void walk()
     {
-        moveVector.x = joystick.Horizontal;
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (joystick != null)
+        {
+            horizontalInput += joystick.Horizontal;
+        }
+
+        moveVector.x = horizontalInput;
         anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
     }
