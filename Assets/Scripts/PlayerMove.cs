@@ -13,9 +13,13 @@ public class PlayerMove : MonoBehaviour
 
     public Joystick joystick;
 
+    public VectorValue pos;
+
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        transform.position = pos.initialValue;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
