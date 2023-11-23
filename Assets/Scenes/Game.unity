@@ -5347,7 +5347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493012943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.819, y: -1.6927, z: 0.05623608}
+  m_LocalPosition: {x: -0.819, y: -1.6927, z: 0}
   m_LocalScale: {x: 3.4053638, y: 3.4053638, z: 3.4053638}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5393,7 +5393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionHeal: 1
-  collisionTag: 
+  collisionTag: Player
 --- !u!1 &510997141
 GameObject:
   m_ObjectHideFlags: 0
