@@ -1274,6 +1274,7 @@ GameObject:
   - component: {fileID: 122138349}
   - component: {fileID: 122138350}
   - component: {fileID: 122138351}
+  - component: {fileID: 122138352}
   m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
@@ -1361,6 +1362,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: SampleScene
+--- !u!61 &122138352
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122138348}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008620948, y: 0.00002501905}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.22, y: 0.33}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01741511, y: 0.33004996}
+  m_EdgeRadius: 0
 --- !u!1 &122391206
 GameObject:
   m_ObjectHideFlags: 0
