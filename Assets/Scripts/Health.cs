@@ -6,10 +6,13 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int maxHealth;
+    public AudioSource audioSource;  // Добавляем поле для AudioSource
+    public AudioClip hitSound;  // А также поле для аудиофайла удара
 
     public void TakeHit(int damage)
     {
         health -= damage;
+        audioSource.PlayOneShot(hitSound);
 
         if (health <= 0)
         {
