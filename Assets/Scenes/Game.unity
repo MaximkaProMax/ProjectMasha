@@ -7321,7 +7321,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   sr: {fileID: 0}
   moveVector: {x: 0, y: 0}
-  speed: 2
+  speed: 3
   joystick: {fileID: 519407910}
   jumpForce: 7
   maxJumpValue: 2
