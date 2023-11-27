@@ -5081,7 +5081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f6a09d68f2eb94ea8942152b40136d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Menu
+  nextSceneName: Credits
 --- !u!212 &806659882
 SpriteRenderer:
   m_ObjectHideFlags: 0
