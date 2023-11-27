@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -39,8 +40,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (transform.position.y < -14f)
         {
-            Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
-            transform.position = newPosition;
+            // Перезагрузка сцены
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
