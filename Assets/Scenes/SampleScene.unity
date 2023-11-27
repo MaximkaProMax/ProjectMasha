@@ -16627,9 +16627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f135bc61127cd4bbefddb1c68c471c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsText: {fileID: 0}
-  coinSound: {fileID: 0}
-  coinPickupSound: {fileID: 0}
+  coinsText: {fileID: 381705410}
+  coinSound: {fileID: 1128205863}
+  coinPickupSound: {fileID: 8300000, guid: f8658f27626372642ba15e6b86bb65ea, type: 3}
 --- !u!61 &2060648482
 BoxCollider2D:
   m_ObjectHideFlags: 0
