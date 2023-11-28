@@ -76,18 +76,30 @@ public class PlayerMove : MonoBehaviour
     private int jumpCount = 0;
     public int maxJumpValue = 2;
 
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && (onGround || (++jumpCount < maxJumpValue))) 
-        { 
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
+void Jump()
+{
+    if (Input.GetKeyDown(KeyCode.Space) && (onGround || (++jumpCount < maxJumpValue))) 
+    { 
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+    }
 
-        if (onGround)
+    if (onGround)
+    {
+        jumpCount = 0;
+    }
+}
+
+void OnCollisionEnter2D(Collision2D col)
+{
+    if (col.gameObject.CompareTag("Enemy"))  // Проверка, что столкнулись с врагом
+    {
+        Enemy enemy = col.gameObject.GetComponent<Enemy>();  // Получаем скрипт врага
+        if (enemy != null)
         {
-            jumpCount = 0;
+            enemy.TakeDamage(100);  // Наносим урон врагу при столкновении с ним
         }
     }
+}
 
     public void JumpButton()
     {

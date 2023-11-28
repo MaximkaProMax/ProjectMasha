@@ -2180,9 +2180,10 @@ GameObject:
   - component: {fileID: 217170805}
   - component: {fileID: 217170811}
   - component: {fileID: 217170809}
+  - component: {fileID: 217170812}
   m_Layer: 8
   m_Name: Frog-Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2330,6 +2331,19 @@ MonoBehaviour:
   speed: 2
   distance: 1
   groundDetection: {fileID: 302803296}
+--- !u!114 &217170812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217170804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd556c3fb45e6934c98908f13c16aa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &236917405
 GameObject:
   m_ObjectHideFlags: 0
