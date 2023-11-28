@@ -93,10 +93,15 @@ void OnCollisionEnter2D(Collision2D col)
 {
     if (col.gameObject.CompareTag("Enemy"))  // Проверка, что столкнулись с врагом
     {
-        Enemy enemy = col.gameObject.GetComponent<Enemy>();  // Получаем скрипт врага
-        if (enemy != null)
+        Vector2 contactNormal = col.contacts[0].normal; // Получаем нормаль касания
+
+        if (contactNormal == Vector2.up) 
         {
-            enemy.TakeDamage(100);  // Наносим урон врагу при столкновении с ним
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();  // Получаем скрипт врага
+            if (enemy != null)
+            {
+                enemy.TakeDamage(100);  // Наносим урон врагу при столкновении с ним
+            }
         }
     }
 }
