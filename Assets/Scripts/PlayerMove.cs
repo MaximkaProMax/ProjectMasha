@@ -131,11 +131,7 @@ public class PlayerMove : MonoBehaviour
             verticalInput = joystick.Vertical;  // Получаем вертикальное значение от джойстика
         }
 
-        moveVector.x = horizontalInput;
-        anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
-        rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
-
-        if (verticalInput < -0.5)  // Если вертикальное значение ниже -0.5, представляющее движение "вниз"
+        if (Input.GetKey(KeyCode.S) || verticalInput < -0.5)  // Если клавиша "S" нажата или вертикальное значение ниже -0.5, представляющее движение "вниз"
         {
             anim.SetBool("squat", true);
             poseStand.enabled = false;
@@ -147,5 +143,5 @@ public class PlayerMove : MonoBehaviour
             poseStand.enabled = true;
             poseSquat.enabled = false;
         }
-    } 
+    }
 }
