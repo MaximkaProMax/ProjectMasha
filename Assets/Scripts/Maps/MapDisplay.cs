@@ -9,7 +9,6 @@ public class MapDisplay : MonoBehaviour
     [SerializeField] private TMP_Text mapDescription;
     [SerializeField] private Image mapImage;
     [SerializeField] private Button playButton;
-    [SerializeField] private GameObject lockImage;
 
     public void DisplayMap(Map map)
     {
@@ -19,7 +18,6 @@ public class MapDisplay : MonoBehaviour
 
         bool mapUnlocked = PlayerPrefs.GetInt("currentScene", 0) >= map.mapIndex;
 
-        lockImage.SetActive(!mapUnlocked);
         playButton.interactable = mapUnlocked;
 
         if (mapUnlocked)
@@ -28,6 +26,6 @@ public class MapDisplay : MonoBehaviour
             mapImage.color = Color.grey;
 
         playButton.onClick.RemoveAllListeners();
-        playButton.onClick.AddListener(() => SceneManager.LoadScene(map.mapName)); //Загрузка нужной сцены по названию сцены
+        playButton.onClick.AddListener(() => SceneManager.LoadScene(map.mapName));
     }
 }

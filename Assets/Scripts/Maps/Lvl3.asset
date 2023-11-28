@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176d9b6475f11ae40b9702e22c75ebdb, type: 3}
   m_Name: Lvl3
   m_EditorClassIdentifier: 
-  mapIndex: 0
-  mapName: 
+  mapIndex: 2
+  mapName: lvl3
   mapDescription: 
-  mapImage: {fileID: 0}
+  mapImage: {fileID: 21300000, guid: cd8b5c40d4edfa9468ece9a8efb5778b, type: 3}
   sceneToLoad: {fileID: 0}

@@ -758,7 +758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e348f024afe12c4599de12de6a7ea62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableObjects: []
+  scriptableObjects:
+  - {fileID: 11400000, guid: 176c05f07df20fb4eac67192e1ad298d, type: 2}
+  - {fileID: 11400000, guid: 1ed3d9df9145b1843b84860c0d342ec3, type: 2}
+  - {fileID: 11400000, guid: 988c54b19afa26043b1ad041e1c0c4e0, type: 2}
   mapDisplay: {fileID: 1817076769}
 --- !u!1 &958201020
 GameObject:
@@ -927,7 +930,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149237725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 784408365}
+        m_TargetAssemblyTypeName: ScriptableObjectsController, Assembly-CSharp
+        m_MethodName: ChangrScriptableObject
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149237725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1064,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1215349323}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215349323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,7 +1350,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680286220}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 784408365}
+        m_TargetAssemblyTypeName: ScriptableObjectsController, Assembly-CSharp
+        m_MethodName: ChangrScriptableObject
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1680286220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,7 +1455,6 @@ MonoBehaviour:
   mapDescription: {fileID: 542058042}
   mapImage: {fileID: 1623987603}
   playButton: {fileID: 1215349322}
-  lockImage: {fileID: 0}
 --- !u!1 &1924423701
 GameObject:
   m_ObjectHideFlags: 0
