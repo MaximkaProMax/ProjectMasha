@@ -3639,13 +3639,14 @@ GameObject:
   m_Component:
   - component: {fileID: 659873269}
   - component: {fileID: 659873268}
+  - component: {fileID: 659873270}
   - component: {fileID: 659873267}
   - component: {fileID: 659873266}
   - component: {fileID: 659873265}
   - component: {fileID: 659873264}
   m_Layer: 8
   m_Name: Frog-Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3793,6 +3794,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659873270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659873263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd556c3fb45e6934c98908f13c16aa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &676919440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,13 +5391,14 @@ GameObject:
   m_Component:
   - component: {fileID: 872946531}
   - component: {fileID: 872946530}
+  - component: {fileID: 872946532}
   - component: {fileID: 872946529}
   - component: {fileID: 872946528}
   - component: {fileID: 872946527}
   - component: {fileID: 872946526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eagle-Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5531,6 +5546,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &872946532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872946525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd556c3fb45e6934c98908f13c16aa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &889435644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,13 +5950,14 @@ GameObject:
   m_Component:
   - component: {fileID: 956103209}
   - component: {fileID: 956103208}
+  - component: {fileID: 956103210}
   - component: {fileID: 956103207}
   - component: {fileID: 956103206}
   - component: {fileID: 956103205}
   - component: {fileID: 956103204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eagle-Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6076,6 +6105,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956103210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956103203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd556c3fb45e6934c98908f13c16aa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &966460339
 GameObject:
   m_ObjectHideFlags: 0
@@ -26444,13 +26486,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1862182835}
   - component: {fileID: 1862182834}
+  - component: {fileID: 1862182836}
   - component: {fileID: 1862182833}
   - component: {fileID: 1862182832}
   - component: {fileID: 1862182831}
   - component: {fileID: 1862182830}
   m_Layer: 8
   m_Name: Frog-Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26598,6 +26641,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1862182836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862182829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd556c3fb45e6934c98908f13c16aa33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1893081231
 GameObject:
   m_ObjectHideFlags: 0
