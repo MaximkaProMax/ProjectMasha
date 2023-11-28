@@ -14,4 +14,18 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Игра закрылась");
         Application.Quit();
     }
+    public void LoadScene1()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void LoadScene2()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void LoadScene3()
+    {
+        SceneManager.LoadScene("Level3");
+    }
 }
