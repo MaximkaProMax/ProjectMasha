@@ -122,7 +122,20 @@ public class PlayerMove : MonoBehaviour
 
     void SquatCheck()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        float horizontalInput = Input.GetAxis("Horizontal"); // Получаем входное значение по горизонтали с клавиатуры
+        float verticalInput = 0f;  // Начальное вертикальное значение
+
+        if (joystick != null)
+        {
+            horizontalInput += joystick.Horizontal;  // Добавляем входное значение от джойстика
+            verticalInput = joystick.Vertical;  // Получаем вертикальное значение от джойстика
+        }
+
+        moveVector.x = horizontalInput;
+        anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
+        rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
+
+        if (verticalInput < -0.5)  // Если вертикальное значение ниже -0.5, представляющее движение "вниз"
         {
             anim.SetBool("squat", true);
             poseStand.enabled = false;
@@ -134,6 +147,5 @@ public class PlayerMove : MonoBehaviour
             poseStand.enabled = true;
             poseSquat.enabled = false;
         }
-    }
-
+    } 
 }
