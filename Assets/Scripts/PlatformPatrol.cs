@@ -27,7 +27,7 @@ public class PlatformPatrol : MonoBehaviour
         }
 
         // Проверяем столкновение с препятствием слева или справа
-        RaycastHit2D obstacleInfo = Physics2D.Raycast(transform.position, direction, 1f);
+        RaycastHit2D obstacleInfo = Physics2D.Raycast(transform.position, direction, 0f);
         if (obstacleInfo.collider != null)
         {
             // Поворачиваем, если есть препятствие слева или справа
