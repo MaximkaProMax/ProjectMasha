@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour
             Vector3 newPosition = new Vector3(-6.04f, 1.05f, transform.position.z);
             transform.position = newPosition;
             health = maxHealth;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
