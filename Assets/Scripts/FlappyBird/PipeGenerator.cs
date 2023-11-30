@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PipeGenerator : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class PipeGenerator : MonoBehaviour
                 Destroy(pipes[i]);
                 pipes.RemoveAt(i);
             }
+
+            if (playerTransform.position.y > 10 || playerTransform.position.y < -10)
+            {
+                ReloadScene();
+            }
         }
 
         // Запускаем метод создания труб только если прошло достаточно времени
@@ -55,5 +61,18 @@ public class PipeGenerator : MonoBehaviour
 
         // Добавляем новую трубу в список
         pipes.Add(newPipe);
+    }
+
+        void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Pipe"))  
+        {
+            ReloadScene(); // Перезагрузить сцену при соприкосновении с трубой
+        }
     }
 }

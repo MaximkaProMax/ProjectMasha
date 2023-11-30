@@ -28,4 +28,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Level3");
     }
+
+    public void LoadScene4()
+    {
+        SceneManager.LoadScene("FlappyBird");
+    }
 }

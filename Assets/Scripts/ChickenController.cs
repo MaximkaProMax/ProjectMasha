@@ -32,6 +32,14 @@ public class ChickenController : MonoBehaviour
         animator.SetBool("IsJumping", !IsGrounded());
     }
 
+    public void JumpButton()
+    {
+        rb.velocity = Vector2.up * jumpForce;
+
+        // Добавляем движение вправо при прыжке
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+    }
+
     bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
