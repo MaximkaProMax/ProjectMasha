@@ -5,74 +5,68 @@ using UnityEngine.SceneManagement;
 
 public class PipeGenerator : MonoBehaviour
 {
-    public GameObject[] pipePrefabs; // Массив различных префабов труб
+    public GameObject pipePrefab;
     public float spawnInterval = 2f;
-    public float minY = -5f;  // Минимальная координата Y
-    public float maxY = 5f;   // Максимальная координата Y
-    public float spawnRangeX = 10f; // Расстояние вдоль оси X от игрока, на котором будут появляться трубы
+    public float minY = -2f;
+    public float maxY = 2f;
+    public float spawnRangeX = 3f;
+    public float gapSize = 1.5f;
+    public LayerMask pipeLayer;
 
-    private Transform playerTransform; // Ссылка на трансформ игрока
-    private List<GameObject> pipes = new List<GameObject>(); // Список всех созданных труб
+    private Transform playerTransform;
 
     void Start()
     {
-        // Находим трансформ игрока
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(CreatePipes());
     }
 
-    void Update()
+    IEnumerator CreatePipes()
     {
-        // Удаляем трубы, которые ушли за пределы игровой области
-        for (int i = pipes.Count - 1; i >= 0; i--)
+        while (true)
         {
-            if (pipes[i].transform.position.x < playerTransform.position.x - spawnRangeX)
-            {
-                Destroy(pipes[i]);
-                pipes.RemoveAt(i);
-            }
-
-            if (playerTransform.position.y > 10 || playerTransform.position.y < -10)
-            {
-                ReloadScene();
-            }
-        }
-
-        // Запускаем метод создания труб только если прошло достаточно времени
-        if (Time.time >= spawnInterval)
-        {
-            SpawnPipe();
-            spawnInterval += 2f; // Увеличиваем интервал по времени для следующего создания трубы
+            GeneratePipe();
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    void SpawnPipe()
+    void GeneratePipe()
     {
-        // Выбираем случайный префаб из массива
-        GameObject selectedPipePrefab = pipePrefabs[Random.Range(0, pipePrefabs.Length)];
+        float spawnY = Random.Range(minY + gapSize, maxY - gapSize);
 
-        // Создаем новую трубу основываясь на выбранном префабе
-        GameObject newPipe = Instantiate(selectedPipePrefab);
+        GameObject topPipe = Instantiate(pipePrefab);
+        topPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY + gapSize);
 
-        // Определяем позицию Y для появления новой трубы
-        float spawnY = Random.Range(minY, maxY);
+        GameObject bottomPipe = Instantiate(pipePrefab);
+        bottomPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY - gapSize);
 
-        // Позиционируем трубу в указанной позиции по оси Y и X на расстоянии spawnRangeX от игрока
-        newPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY);
-
-        // Добавляем новую трубу в список
-        pipes.Add(newPipe);
+        AddColliderAndLayer(topPipe);
+        AddColliderAndLayer(bottomPipe);
     }
 
-        void ReloadScene()
+    void AddColliderAndLayer(GameObject pipe)
+    {
+        Collider2D collider = pipe.GetComponent<Collider2D>();
+        if (collider == null)
+        {
+            collider = pipe.AddComponent<BoxCollider2D>();
+        }
+
+        pipe.layer = LayerMask.NameToLayer("Pipe");
+        collider.gameObject.layer = LayerMask.NameToLayer("Pipe");
+        collider.gameObject.layer = pipeLayer;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ReloadScene();
+        }
+    }
+
+    void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Pipe"))  
-        {
-            ReloadScene(); // Перезагрузить сцену при соприкосновении с трубой
-        }
     }
 }
