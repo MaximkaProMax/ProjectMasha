@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         float playerY = transform.position.y;
 
-        if (playerY < -5f || playerY > 5f)
+        if (playerY < -15f || playerY > 15f)
         {
             ReloadScene();
         }
