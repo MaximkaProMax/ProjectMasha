@@ -67,7 +67,6 @@ public class PipeGenerator : MonoBehaviour
         }
     }
 
-
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
