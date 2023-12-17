@@ -37,12 +37,14 @@ public class PipeGenerator : MonoBehaviour
         GameObject topPipe = Instantiate(pipePrefab);
         topPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY + gapSize);
 
+        topPipe.tag = "Pipe";
+
         GameObject bottomPipe = Instantiate(pipePrefab);
         bottomPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY - gapSize);
 
-        AddColliderAndLayer(topPipe);
-        AddColliderAndLayer(bottomPipe);
+        bottomPipe.tag = "Pipe";
     }
+
 
     void AddColliderAndLayer(GameObject pipe)
     {
@@ -57,13 +59,14 @@ public class PipeGenerator : MonoBehaviour
         collider.gameObject.layer = pipeLayer;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Pipe"))
         {
             ReloadScene();
         }
     }
+
 
     void ReloadScene()
     {
