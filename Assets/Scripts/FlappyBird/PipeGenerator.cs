@@ -14,6 +14,7 @@ public class PipeGenerator : MonoBehaviour
     public LayerMask pipeLayer;
 
     private Transform playerTransform;
+    private List<GameObject> pipes = new List<GameObject>();
 
     void Start()
     {
@@ -36,27 +37,28 @@ public class PipeGenerator : MonoBehaviour
 
         GameObject topPipe = Instantiate(pipePrefab);
         topPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY + gapSize);
-
-        topPipe.tag = "Pipe";
+        pipes.Add(topPipe);
 
         GameObject bottomPipe = Instantiate(pipePrefab);
         bottomPipe.transform.position = new Vector2(playerTransform.position.x + spawnRangeX, spawnY - gapSize);
-
-        bottomPipe.tag = "Pipe";
+        pipes.Add(bottomPipe);
     }
 
-
-    void AddColliderAndLayer(GameObject pipe)
+    void Update()
     {
-        Collider2D collider = pipe.GetComponent<Collider2D>();
-        if (collider == null)
-        {
-            collider = pipe.AddComponent<BoxCollider2D>();
-        }
+        CheckAndDestroyPipes();
+    }
 
-        pipe.layer = LayerMask.NameToLayer("Pipe");
-        collider.gameObject.layer = LayerMask.NameToLayer("Pipe");
-        collider.gameObject.layer = pipeLayer;
+    void CheckAndDestroyPipes()
+    {
+        for (int i = pipes.Count - 1; i >= 0; i--)
+        {
+            if (pipes[i].transform.position.x < playerTransform.position.x - spawnRangeX)
+            {
+                Destroy(pipes[i]);
+                pipes.RemoveAt(i);
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
