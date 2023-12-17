@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class Player : MonoBehaviour
 
     //ui methods
 
-  
 
 
+    void Update()
+    {
+        CheckPlayerPosition();
+    }
 
     public void SavePlayer() //для кнопки сохранить
     {
@@ -34,5 +38,20 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
+    }
+
+    void CheckPlayerPosition()
+    {
+        float playerY = transform.position.y;
+
+        if (playerY < -5f || playerY > 5f)
+        {
+            ReloadScene();
+        }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

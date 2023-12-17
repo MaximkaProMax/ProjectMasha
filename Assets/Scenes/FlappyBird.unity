@@ -2949,6 +2949,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7562328218076041393, guid: 5c914e466e5f22f4fae4847e27f7b087, type: 3}
+      propertyPath: collisionDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8406075670395177312, guid: 5c914e466e5f22f4fae4847e27f7b087, type: 3}
       propertyPath: m_Name
       value: PipeStyle1_0
